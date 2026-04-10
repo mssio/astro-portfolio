@@ -37,12 +37,12 @@ Personal and contact information:
 - `profession`: Current profession
 - `description`: Brief description
 - `bio.paragraphs`: Array of paragraphs for the "About" section
-- `skills`: Array of technical skills
-- `hobbies`: Array of personal hobbies
-- `profile.picture`: Profile image path
+- `profile.picture`: Profile image path (e.g. `/profile.png`)
+- `profile.altText`: Alt text for the profile image
 - `banner.image`: URL or path of the banner image
-- `contact`: Email and phone
-- `socialMedia`: Links to social networks
+- `banner.altText`: Alt text for the banner image
+- `contact.email`: Contact email address
+- `socialMedia`: Links to social networks (e.g. LinkedIn, GitHub, X, website)
 
 ### src/data/experience.ts
 
@@ -69,10 +69,10 @@ Array of technical skills with SVG icons. Add or remove skills by modifying this
 
 ## Architecture
 
-```
+```text
 str-portfolio/
 ├── public/                    # Static files
-│   ├── profile.jpg           # Profile image
+│   ├── profile.png           # Profile image
 │   └── screenshot_*.png      # Screenshots
 ├── src/
 │   ├── Layouts/
