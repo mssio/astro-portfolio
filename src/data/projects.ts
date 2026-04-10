@@ -1,23 +1,23 @@
 export const projects = [
   {
-    title: "Project 1",
-    description: "This project is a web application built using React and Node.js. It allows users to create and manage their tasks efficiently",
-    image: "https://picsum.photos/250/201",
-    link: "https://example.com/project1",
-    stack: ['React', 'Node.js', 'MongoDB']
+    title: "Nafas",
+    description: "Backend services for an air quality monitoring platform in Indonesia, hosted on Google Cloud Platform using Docker and Kubernetes for containerized deployment.",
+    image: "/logo-nafas.png",
+    link: "https://nafas.com/",
+    stack: ['Node.js', 'Docker', 'Kubernetes', 'GCP']
   },
   {
-    title: "Project 2",
-    description: "This project is a web application built using Python and Django. It features a user-friendly interface.",
-    link: "https://via.placeholder.com/150",
-    image: "https://picsum.photos/252/200",
-    stack: ['Python', 'Django', 'PostgreSQL']
+    title: "Mandiri Kartu Kredit",
+    description: "Email blast automation system for Bank Mandiri's credit card department, delivering millions of emails per month. Includes credit card auto-billing registration with Doku payment gateway verification.",
+    image: "/logo-mandiri.png",
+    link: "https://www.mandirikartukredit.com/",
+    stack: ['PHP', 'Laravel', 'MySQL', 'Redis']
   },
   {
-    title: "Project 3",
-    description: "This project is a web application built using JavaScript and Vue.js. It features a user-friendly interface.",
-    image: "https://picsum.photos/251/200",
-    link: "https://example.com/project3",
-    stack: ['JavaScript', 'Vue.js', 'Firebase']
+    title: "IABEE",
+    description: "Accreditation management system (web and mobile app) for higher education institutions in Indonesia, deployed on AWS.",
+    image: "/logo-iabee.png",
+    link: "https://iabee.or.id/",
+    stack: ['PHP', 'Laravel', 'MySQL', 'AWS']
   }
 ]
