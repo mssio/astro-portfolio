@@ -12,16 +12,17 @@ const { title, description, image, link } = Astro.props;
 ---
 
 <article class="card">
-  <img src={image} alt="Descripción de la imagen 2" loading="lazy" width="201" height="103" />
+  <img src={image} alt={`${title} project logo`} loading="lazy" width="201" height="103" />
   <h3>{title}</h3>
   <p>{description}</p>
-  <a href={link}>Leer más</a>
+  <a href={link} target="_blank" rel="noopener noreferrer">Visit website</a>
 </article>
 
 <style>
   .card {
     display: flex;
     flex-direction: column;
+    height: 100%;
     padding: 1rem;
     border-radius: 10px;
     background-color: var(--secundary-background-color);
@@ -34,14 +35,18 @@ const { title, description, image, link } = Astro.props;
       border-radius: 10px;
       margin-bottom: 15px;
       width: 100%;
-      height: auto;
-      object-fit: cover;
+      height: 140px;
+      object-fit: contain;
+      background-color: #fff;
+      padding: 0.75rem;
+      box-sizing: border-box;
     }
     h3 {
       margin: 10px 0;
       font-size: 1.3em;
     }
     p {
+      flex-grow: 1;
       font-size: 1em;
       color: var(--text-color);
       margin-bottom: 15px;

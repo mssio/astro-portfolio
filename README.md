@@ -1,139 +1,139 @@
 # Astro Portfolio Template
 
-Template de portafolio personal construido con Astro, diseñado para ser fácil de personalizar y desplegar.
+Personal portfolio template built with Astro, designed to be easy to customize and deploy.
 
-## Instalación
+## Installation
 
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone https://github.com/elstron/astro-portfolio.git
 
-# Instalar dependencias
+# Install dependencies
 pnpm install
 ```
 
-## Comandos
+## Commands
 
 ```bash
-# Iniciar servidor de desarrollo en puerto 4321
+# Start development server on port 4321
 pnpm dev
 
-# Generar build de producción
+# Generate production build
 pnpm build
 
-# Previsualizar build de producción
+# Preview production build
 pnpm preview
 ```
 
-## Personalización
+## Customization
 
-Todo el contenido del portafolio se gestiona mediante archivos TypeScript ubicados en `src/data/`. Edita estos archivos para personalizar tu información:
+All portfolio content is managed through TypeScript files located in `src/data/`. Edit these files to customize your information:
 
 ### src/data/aboutMe.ts
 
-Información personal y de contacto:
+Personal and contact information:
 
-- `name`: Nombre y título principal
-- `profession`: Profesión actual
-- `description`: Descripción breve
-- `bio.paragraphs`: Array de párrafos para la sección "About"
-- `skills`: Array de habilidades técnicas
-- `hobbies`: Array de hobbies personales
-- `profile.picture`: Ruta de la imagen de perfil
-- `banner.image`: URL o ruta de la imagen del banner
-- `contact`: Email y teléfono
-- `socialMedia`: Enlaces a redes sociales
+- `name`: Name and main title
+- `profession`: Current profession
+- `description`: Brief description
+- `bio.paragraphs`: Array of paragraphs for the "About" section
+- `profile.picture`: Profile image path (e.g. `/profile.png`)
+- `profile.altText`: Alt text for the profile image
+- `banner.image`: URL or path of the banner image
+- `banner.altText`: Alt text for the banner image
+- `contact.email`: Contact email address
+- `socialMedia`: Links to social networks (e.g. LinkedIn, GitHub, X, website)
 
 ### src/data/experience.ts
 
-Array de experiencias laborales. Cada entrada contiene:
+Array of work experiences. Each entry contains:
 
-- `company`: Nombre de la empresa
-- `position`: Cargo o posición
-- `duration`: Período de tiempo
-- `responsibilities`: Array de responsabilidades
+- `company`: Company name
+- `position`: Job title or position
+- `duration`: Time period
+- `responsibilities`: Array of responsibilities
 
 ### src/data/projects.ts
 
-Array de proyectos. Cada proyecto incluye:
+Array of projects. Each project includes:
 
-- `title`: Nombre del proyecto
-- `description`: Descripción del proyecto
-- `image`: URL de la imagen del proyecto
-- `link`: Enlace al proyecto
-- `stack`: Array de tecnologías utilizadas
+- `title`: Project name
+- `description`: Project description
+- `image`: Project image URL
+- `link`: Link to the project
+- `stack`: Array of technologies used
 
 ### src/data/skills.ts
 
-Array de habilidades técnicas con iconos SVG. Añade o elimina habilidades modificando este archivo. Los iconos SVG se almacenan en `src/assets/icons/`.
+Array of technical skills with SVG icons. Add or remove skills by modifying this file. SVG icons are stored in `src/assets/icons/`.
 
-## Arquitectura
+## Architecture
 
-```
+```text
 str-portfolio/
-├── public/                    # Archivos estáticos
-│   ├── profile.jpg           # Imagen de perfil
+├── public/                    # Static files
+│   ├── profile.png           # Profile image
 │   └── screenshot_*.png      # Screenshots
 ├── src/
 │   ├── Layouts/
-│   │   └── Layout.astro      # Layout principal con meta tags y estructura HTML
+│   │   └── Layout.astro      # Main layout with meta tags and HTML structure
 │   ├── assets/
-│   │   ├── icons/            # Iconos SVG para skills
-│   │   └── social/           # Iconos de redes sociales
+│   │   ├── icons/            # SVG icons for skills
+│   │   └── social/           # Social network icons
 │   ├── components/
 │   │   ├── Experience/
-│   │   │   └── ExperienceCard.astro    # Card individual de experiencia
+│   │   │   └── ExperienceCard.astro    # Individual experience card
 │   │   ├── projects/
-│   │   │   └── ProjectCard.astro       # Card individual de proyecto
+│   │   │   └── ProjectCard.astro       # Individual project card
 │   │   ├── sections/
-│   │   │   ├── About.astro             # Sección "Sobre mí"
-│   │   │   ├── Experience.astro        # Sección de experiencia laboral
-│   │   │   ├── Hero.astro              # Sección hero con banner y perfil
-│   │   │   ├── Projects.astro          # Sección de proyectos
-│   │   │   └── Skills.astro            # Sección de habilidades
-│   │   └── Footer.astro                # Footer del sitio
+│   │   │   ├── About.astro             # "About me" section
+│   │   │   ├── Experience.astro        # Work experience section
+│   │   │   ├── Hero.astro              # Hero section with banner and profile
+│   │   │   ├── Projects.astro          # Projects section
+│   │   │   └── Skills.astro            # Skills section
+│   │   └── Footer.astro                # Site footer
 │   ├── data/
-│   │   ├── aboutMe.ts        # Datos personales y contacto
-│   │   ├── experience.ts     # Datos de experiencia laboral
-│   │   ├── projects.ts       # Datos de proyectos
-│   │   └── skills.ts         # Datos de habilidades técnicas
+│   │   ├── aboutMe.ts        # Personal data and contact
+│   │   ├── experience.ts     # Work experience data
+│   │   ├── projects.ts       # Projects data
+│   │   └── skills.ts         # Technical skills data
 │   ├── pages/
-│   │   └── index.astro       # Página principal que compone todas las secciones
-│   └── styles.css            # Estilos globales con CSS variables
-├── astro.config.mjs          # Configuración de Astro (modo server)
-├── tsconfig.json             # Configuración de TypeScript
-└── package.json              # Dependencias y scripts
+│   │   └── index.astro       # Main page composing all sections
+│   └── styles.css            # Global styles with CSS variables
+├── astro.config.mjs          # Astro configuration (server mode)
+├── tsconfig.json             # TypeScript configuration
+└── package.json              # Dependencies and scripts
 ```
 
-### Flujo de Datos
+### Data Flow
 
-1. Los datos se definen en archivos TypeScript (`src/data/`)
-2. Las secciones (`src/components/sections/`) importan y consumen estos datos
-3. Los componentes de card (`ExperienceCard`, `ProjectCard`) renderizan elementos individuales
-4. La página principal (`src/pages/index.astro`) compone todas las secciones
-5. El Layout (`src/Layouts/Layout.astro`) proporciona la estructura HTML y meta tags
+1. Data is defined in TypeScript files (`src/data/`)
+2. Sections (`src/components/sections/`) import and consume this data
+3. Card components (`ExperienceCard`, `ProjectCard`) render individual items
+4. The main page (`src/pages/index.astro`) composes all sections
+5. The Layout (`src/Layouts/Layout.astro`) provides the HTML structure and meta tags
 
-### Estilos
+### Styles
 
-El proyecto utiliza:
-- CSS variables para temas claro/oscuro automáticos mediante `light-dark()`
-- Estilos scoped en componentes Astro
-- Fuente `Roboto Mono Variable` de Fontsource
-- Grid CSS para layout principal
-- Variables CSS personalizables en `styles.css`
+The project uses:
+- CSS variables for automatic light/dark themes via `light-dark()`
+- Scoped styles in Astro components
+- `Roboto Mono Variable` font from Fontsource
+- CSS Grid for main layout
+- Customizable CSS variables in `styles.css`
 
-### Modo de Renderizado
+### Rendering Mode
 
-El proyecto está configurado en modo `server` (SSR) en `astro.config.mjs`. Para generar un sitio estático, cambia `output: 'server'` a `output: 'static'`.
+The project is configured in `server` mode (SSR) in `astro.config.mjs`. To generate a static site, change `output: 'server'` to `output: 'static'`.
 
-## Tecnologías
+## Technologies
 
 - Astro 6.0.8
 - TypeScript
-- CSS con variables nativas
+- CSS with native variables
 - Roboto Mono Variable font
-- Prettier para formateo de código
+- Prettier for code formatting
 
-## Licencia
+## License
 
 ISC

@@ -21,7 +21,70 @@ const { title, description, image } = Astro.props;
     <meta property="og:image" content={image ?? '/profile.jpg'} />
   </head>
   <body>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+      <span id="theme-icon">🌙</span>
+    </button>
     <main><slot /></main>
+    <Footer />
   </body>
-  <Footer />
 </html>
+
+<style>
+  #theme-toggle {
+    /* Stack in the same grid cell as <main> so auto-placement does not add extra rows */
+    grid-area: main;
+    justify-self: end;
+    align-self: start;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+    background: var(--secundary-background-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    @media (max-width: 768px) {
+      width: 2rem;
+      height: 2rem;
+      font-size: 0.9rem;
+      top: 0.5rem;
+      right: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  const root = document.documentElement;
+
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = saved ? saved === 'dark' : prefersDark;
+
+  function applyTheme(dark: boolean) {
+    root.style.colorScheme = dark ? 'dark' : 'light';
+    icon!.textContent = dark ? '☀️' : '🌙';
+  }
+
+  applyTheme(isDark);
+
+  toggle?.addEventListener('click', () => {
+    const currentlyDark = root.style.colorScheme === 'dark';
+    const next = !currentlyDark;
+    applyTheme(next);
+    localStorage.setItem('theme', next ? 'dark' : 'light');
+  });
+</script>

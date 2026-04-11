@@ -6,8 +6,18 @@ import { skills } from '../../data/skills';
   <h2>Skills</h2>
   <div class="carousel-container">
     <ul class="skills-list">
-      {skills.map((skill) => <li>{<skill.icon width={48} height={48} />}</li>)}
-      {skills.map((skill) => <li>{<skill.icon width={48} height={48} />}</li>)}
+      {skills.map((skill) => (
+        <li>
+          <skill.icon />
+          <span>{skill.name}</span>
+        </li>
+      ))}
+      {skills.map((skill) => (
+        <li aria-hidden="true">
+          <skill.icon />
+          <span>{skill.name}</span>
+        </li>
+      ))}
     </ul>
   </div>
 </section>
@@ -18,7 +28,7 @@ import { skills } from '../../data/skills';
   }
   .carousel-container {
     width: 100%;
-    overflow-x: auto;
+    overflow: hidden;
     -webkit-mask-image: linear-gradient(
       to right,
       transparent 0%,
@@ -27,22 +37,42 @@ import { skills } from '../../data/skills';
       transparent 100%
     );
     mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+
     .skills-list {
       display: flex;
       flex-wrap: nowrap;
-      gap: 2rem;
+      gap: 2.5rem;
       list-style: none;
       margin: 0;
-      padding: 0;
-      animation: carousel 10s linear infinite forwards;
+      padding: 1rem 0;
+      width: max-content;
+      animation: carousel 25s linear infinite;
 
       li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
         color: #fff;
         border-radius: 5px;
-        font-size: 0.9em;
+        font-size: 0.85em;
         transition:
           transform 0.2s,
           color 0.2s;
+
+        svg {
+          width: 48px;
+          height: 48px;
+          @media (max-width: 768px) {
+            width: 36px;
+            height: 36px;
+          }
+        }
+
+        span {
+          white-space: nowrap;
+          opacity: 0.85;
+        }
 
         &:hover {
           color: var(--primary-color);
@@ -57,7 +87,7 @@ import { skills } from '../../data/skills';
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-20rem);
+      transform: translateX(-50%);
     }
   }
 </style>

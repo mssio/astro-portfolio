@@ -99,6 +99,8 @@ aside-component {
 main {
   grid-area: main;
   max-width: 1200px;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
   padding: 10px;
   display: flex;

@@ -2,3 +2,6 @@
 node_modules/
 .env
 dist/
+
+# Accidental local CLI session artifacts (do not commit)
+instruction.txt

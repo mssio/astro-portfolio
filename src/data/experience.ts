@@ -1,29 +1,24 @@
 export const experience = [
   {
-    company: 'Tech Solutions Inc.',
-    position: 'Senior Software Developer',
-    duration: 'January 2020 - Present',
-    responsibilities: [
-      'Lead a team of developers to design and implement web applications using React and Node.js.',
-      'Collaborate with cross-functional teams',
-    ],
-  },
-  {
-    company: 'Innovatech Ltd.',
+    company: 'PT Inti Solusi Tekindo',
     position: 'Software Developer',
-    duration: 'June 2017 - December 2019',
+    duration: 'July 2014 – July 2025 · Jakarta, Indonesia',
     responsibilities: [
-      'Developed and maintained web applications using JavaScript, HTML, and CSS.',
-      'Worked closely with designers',
+      'Developed backend services for an air quality monitoring platform (Nafas) on GCP using Docker and Kubernetes.',
+      'Designed and maintained an accreditation management system (web & mobile) for higher education institutions, deployed on AWS (IABEE).',
+      'Built a payment integration system for EDC devices supporting Alipay, WeChat Pay, QRIS, ShopeePay, and Dana on Alibaba Cloud.',
+      'Created a credit card auto-billing and email blast automation system for Mandiri Kartu Kredit with Doku payment gateway.',
+      'Developed an ETL pipeline from MongoDB to BigQuery for a gaming leaderboard service (Touchten).',
+      'Built a web-based queue management application for government banks BRI and BNI.',
     ],
   },
   {
-    company: 'Web Solutions Co.',
-    position: 'Junior Software Developer',
-    duration: 'January 2015 - May 2017',
+    company: 'PT Altavindo',
+    position: 'Software Developer',
+    duration: 'December 2011 – June 2014 · Jakarta, Indonesia',
     responsibilities: [
-      'Assisted in the development of web applications and performed bug fixes.',
-      'Contributed to the documentation of code ',
+      'Developed an online payment gateway and flight booking system for travel website PegiPegi.',
+      'Deployed and managed Linux servers on AWS for Mandiri Fiesta Poin banking reward redemption website, handling thousands of simultaneous requests per second.',
     ],
-  }
+  },
 ]
